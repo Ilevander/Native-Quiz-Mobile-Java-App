@@ -15,7 +15,9 @@
         <activity android:name=".activites.CategoryActivity" />
         <activity android:name=".activites.Settings" />
         <activity android:name=".activites.QuizActivity2" />
-        <activity android:name=".activites.HomeScreen">
+        <activity android:name=".activities.HomeScreen"
+                  android:exported="true"
+                  android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

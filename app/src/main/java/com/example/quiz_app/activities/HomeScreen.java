@@ -14,9 +14,7 @@ import android.widget.Toast;
 
 import com.example.quiz_app.utils.AppController;
 import com.example.quiz_app.R;
-import com.infowithvijay.triviaquizapp2.utils.SettingsPreferences;
-
-import static com.infowithvijay.triviaquizapp2.utils.AppController.StopSound;
+import com.example.quiz_app.utils.SettingsPreferences;
 
 public class HomeScreen extends AppCompatActivity implements View.OnClickListener {
 

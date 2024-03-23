@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.quiz_app.R;
-import com.infowithvijay.triviaquizapp2.activites.HomeScreen;
+import com.example.quiz_app.activities.HomeScreen;
 
 public class TimerDialog {
 

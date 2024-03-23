@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat;
 
 import com.example.quiz_app.constants.Constants;
 import com.example.quiz_app.utils.PlayAudio;
-import com.infowithvijay.triviaquizapp2.R;
+import com.e.R;
 import com.infowithvijay.triviaquizapp2.dialogs.TimerDialog;
 import com.infowithvijay.triviaquizapp2.data.TriviaQuestion;
 import com.infowithvijay.triviaquizapp2.db.TriviaQuizHelper;
