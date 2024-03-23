@@ -19,7 +19,7 @@ public class ScoreActivity extends AppCompatActivity {
     TextView txtResultForProgramingS,txtResultForMotivationS,txtResultForVideoProductionS;
 
     ImageView imgHomeScreen;
-    
+
     public static final String SCOREPREFERENCE = "shared_preference";
     public static final String PROGRAMING = "programing_high_score_preference";
     public static final String MOTIVATION = "motivation_high_score_preference";
