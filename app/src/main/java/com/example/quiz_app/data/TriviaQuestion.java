@@ -1,4 +1,4 @@
-package com.example.quiz_app.db;
+package com.example.quiz_app.data;
 
 public class TriviaQuestion {
 
