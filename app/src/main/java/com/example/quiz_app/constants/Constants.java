@@ -1,6 +1,6 @@
 package com.example.quiz_app.constants;
 
-public class Conatants {
+public class Constants {
     public static final boolean DEFAULT_MUSIC_SETTING = false;
 
     public static final String DIGITALMARKETING = "DigitalMarketing";
