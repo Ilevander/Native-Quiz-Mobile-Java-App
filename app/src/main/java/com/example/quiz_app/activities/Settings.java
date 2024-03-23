@@ -1,6 +1,6 @@
 package com.example.quiz_app.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.quiz_app.utils.AppController.StopSound;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,11 +9,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Switch;
 
-import com.example.quiz_app.utils.AppController;
-import com.example.quiz_app.R;
-import com.example.quiz_app.utils.SettingsPreferences;
+import androidx.appcompat.app.AppCompatActivity;
 
-import static com.example.quiz_app.utils.AppController.StopSound;
+import com.example.quiz_app.R;
+import com.example.quiz_app.utils.AppController;
+import com.example.quiz_app.utils.SettingsPreferences;
 
 public class Settings extends AppCompatActivity {
 
@@ -59,16 +59,13 @@ public class Settings extends AppCompatActivity {
     }
 
     public void viewClickHandler(View view) {
+        int viewId = view.getId();
 
-        switch (view.getId()){
-
-
-            case R.id.music_checkbox:
-                switchMusicEnableCheckbox();
-                break;
+        if (viewId == R.id.music_checkbox) {
+            switchMusicEnableCheckbox();
         }
-
     }
+
 
     private void switchMusicEnableCheckbox() {
 
