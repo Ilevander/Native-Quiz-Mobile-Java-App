@@ -1,5 +1,7 @@
 package com.example.quiz_app.activities;
 
+import static com.example.quiz_app.utils.AppController.StopSound;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +21,7 @@ import com.example.quiz_app.utils.SettingsPreferences;
 public class HomeScreen extends AppCompatActivity implements View.OnClickListener {
 
     Button btPlayQuiz;
-    ImageView imgSettingsScreen,imgScoreScreen;
+    ImageView imgSettingsScreen, imgScoreScreen;
 
     public static Context context;
 
@@ -29,7 +31,6 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homescreen);
-
 
         btPlayQuiz = findViewById(R.id.bt_PlayButton);
         imgSettingsScreen = findViewById(R.id.img_settingsH);
@@ -41,72 +42,52 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
 
         context = getApplicationContext();
         AppController.currentActivity = this;
-        if (SettingsPreferences.getMusicEnableDisable(context)){
+        if (SettingsPreferences.getMusicEnableDisable(context)) {
             try {
-
                 AppController.playMusic();
-
-            }catch (IllegalStateException e){
+            } catch (IllegalStateException e) {
                 e.printStackTrace();
             }
         }
-
     }
 
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()){
-
-            case R.id.bt_PlayButton:
-
-                Intent playIntent = new Intent(HomeScreen.this,CategoryActivity.class);
-                startActivity(playIntent);
-                finish();
-                break;
-
-            case R.id.img_settingsH:
-                Intent settingIntent = new Intent(HomeScreen.this,Settings.class);
-                startActivity(settingIntent);
-                finish();
-                break;
-
-            case R.id.img_scoreH:
-                Intent scoreIntent = new Intent(HomeScreen.this,ScoreActivity.class);
-                startActivity(scoreIntent);
-                finish();
-                break;
-
+        if (view.getId() == R.id.bt_PlayButton) {
+            Intent playIntent = new Intent(HomeScreen.this, CategoryActivity.class);
+            startActivity(playIntent);
+            finish();
+        } else if (view.getId() == R.id.img_settingsH) {
+            Intent settingIntent = new Intent(HomeScreen.this, Settings.class);
+            startActivity(settingIntent);
+            finish();
+        } else if (view.getId() == R.id.img_scoreH) {
+            Intent scoreIntent = new Intent(HomeScreen.this, ScoreActivity.class);
+            startActivity(scoreIntent);
+            finish();
         }
-
     }
 
     @Override
     public void onBackPressed() {
-
         StopSound();
 
-        if (backPressedTime + 2000 > System.currentTimeMillis()){
-
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
             new AlertDialog.Builder(this)
                     .setTitle("Do you want to Exit")
-                    .setNegativeButton("No",null)
+                    .setNegativeButton("No", null)
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-
-                            setResult(RESULT_OK,new Intent().putExtra("Exit",true));
+                            setResult(RESULT_OK, new Intent().putExtra("Exit", true));
                             finish();
-
                         }
                     }).create().show();
-
-        }else {
-
+        } else {
             Toast.makeText(context, "Press Again to Exit", Toast.LENGTH_SHORT).show();
         }
 
         backPressedTime = System.currentTimeMillis();
-
     }
 }
